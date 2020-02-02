@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <title>Date Validations</title>
+
+    <script>
+        $(document).ready(function() {
+        //$(function() {
+        //  $( ".datepicker" ).datepicker();
+        //},
+            
+
+            console.log("ready");
+            $('.i_name').append("<p style='color: red'>Your anme can't be blank!</p>");
+            //$('.i_name').append("<p style='color: red'>Your anme can't be blank!</p>");
+            $('form').submit(function() {
+                console.log('#####');
+                console.log($('.i_name').val());
+                console.log('#####');
+                if ($('.i_name').val() == "") {
+                    console.log("abc");
+                    $('.i_name').append("<p style='color: red'>Your anme can't be blank!</p>");
+                }
+            });
+
+            $('.sub').click(function() {
+                $('.i_name').append("<p style='color: red'>Your anme can't be blank!</p>");
+            });
+        });
+    </script>
+
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .p_name {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Codingdojo plan-a-Cruise!</h1>
+        <form action="">
+            <p>From: <input type="text" class="datepicker"></p>
+            <p>To: <input type="text" class="datepicker"></p>
+            <p class='p_name'>Name:</p>
+            <input class='i_name' type="text" name="name" id="">
+        </form>
+        <div class="sub">
+            <input type="submit" name="Check dates!">
+        </div>        
+    </div>
+</body>
+</html>

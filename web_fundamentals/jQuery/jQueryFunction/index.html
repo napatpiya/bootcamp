@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>jQuery Function</title>
+
+    <style>
+        h1 {
+            padding: 10px 0px 40px 20px;
+        }
+
+        h2,p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>jQuery Function</h1>
+        <div id=world></div>
+    </div>
+
+    <script>
+        var collect = ['click', 'hide', 'show', 'toggle', 'slideDown', 'slideUp', 'slideToggle', 'fadeIn', 'fadeOut', 'addClass', 'before', 'after', 'append', 'html', 'attr', 'val', 'text'];
+        var output = "";
+
+        for (var i=0; i<collect.length; i++) {
+                output += "\n<div class='row'>\n";
+                output += "<div class='col'>\n";
+                output += "<button type='button' class='btn btn-dark "+collect[i]+"'>Click Me!</button>\n";
+                output += "</div>\n"
+                output += "<div class='col-8'>\n";
+                output += "<h2 class='"+collect[i]+"'>"+collect[i]+"</h2>\n";
+                output += "<p class='"+collect[i]+"'>Click the button, it will show effect.</p>\n"
+                output += "</div>\n"
+                output += "</div>";
+                output += "\n<hr>";
+            }
+        
+        console.log(output);
+        document.getElementById('world').innerHTML = output;
+
+        $('p.show').hide();
+        $('p.slideDown').html("<img src='./python-logo.png' class='slideDown' style='width: 400px'>");
+        $('img.slideDown').css("display","none");
+        $('p.slideUp').html("<img src='./python-logo.png' class='slideUp' style='width: 400px'>");
+        $('p.slideToggle').html("<img src='./python-logo.png' class='slideToggle' style='width: 400px'>");
+        $('p.fadeIn').css("display", "none");
+
+        $('button.click').click(function() {
+            $('p.click').css('color', 'blue');
+        });
+
+        $('button.hide').click(function() {
+            $('p.hide').hide();
+        });
+
+        $('button.show').click(function() {
+            $('p.show').show();
+        });
+
+        $('button.toggle').click(function() {
+            $('p.toggle').toggle();
+        });
+
+        $('button.slideDown').click(function() {
+            $('img.slideDown').slideDown("slow");
+            console.log('workkkkkkkk')
+        });
+
+        $('button.slideUp').click(function() {
+            $('img.slideUp').slideUp("slow");
+        });
+
+        $('button.slideToggle').click(function() {
+            $('img.slideToggle').slideToggle("slow");
+        });
+
+        $('button.fadeIn').click(function() {
+            $('p.fadeIn').fadeIn("slow");
+        });
+
+        $('button.fadeOut').click(function() {
+            $('p.fadeOut').fadeOut("slow");
+        });
+
+        $('button.addClass').click(function() {
+            $('p.addClass').addClass("test");
+            $('p.addClass').text("Class 'test' alreaddy added to p tag");
+            $('p.addClass').css('color', 'red');
+        });
+
+        $('button.before').click(function() {
+            $('p.before').before("<p class='p_add'>Add text before p tag</p>");
+            $('.p_add').css('color', 'blue');
+        });
+
+        $('button.after').click(function() {
+            $('p.after').after("<p class='p_after'>Add text after p tag</p>");
+            $('.p_after').css('color', 'blue');
+        });
+
+        $('button.append').click(function() {
+            $('p.append').append(" Add text append p tag");
+        });
+
+        $('button.html').click(function() {
+            $('p.html').html("<h2 style='color: blue'>It can change html element<h2>");
+        });
+
+        $('button.attr').click(function() {
+            $('p.attr').text("It can change or get attribute values of tag");
+            $('p.attr').css('color', 'blue');
+        });
+
+        $('button.val').click(function() {
+            $('p.val').val("It can change or get values of tag");
+            $('p.val').css('color', 'blue');
+        });
+
+        $('button.text').click(function() {
+            $('p.text').text("It can change text.");
+            $('p.text').css('color', 'blue');
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> My Registration Form</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for="first_name">First Name:</label></td>
+                <td><input type="text" name="first_name" id="first_name"></td>
+            </tr>
+            <tr>
+                <td><label for="last_name">Last Name:</label></td>
+                <td><input type="text" name="last_name" id="last_name"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>  
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>  
+            <tr>
+                <td><label for="pw_confirm">PW Confirm</label></td>
+                <td><input type="password" name="pw_confirm" id="pw_confirm"></td>
+            </tr>
+            <tr>
+                <td><label>Birthday</label></td>
+                <td><input type="date" name="date" id="date"></td>
+            </tr>  
+            <tr>
+                <td colspan="2">
+                    <label>
+                        <input type="radio" name="gender" value="male">Male &nbsp;
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female">Femail &nbsp;
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other">Ohter
+                    </label>
+                </td>
+            </tr>       
+        </table>
+        <p>A short description about yourself:</p>
+        <textarea name="description" id="description" cols="40" rows="4"></textarea>
+        <p>Favorite Language
+            <select name="language">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="c#.net">C#.NET</option>
+            </select>
+        </p>
+        <input type="submit" name="Submit" id="submit">
+    </form>
+</body>
+</html>

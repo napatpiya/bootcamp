@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col {
+    padding: 20px;
+    border: 1px solid rgb(219, 182, 111);
+    margin: 0;
+}
+
+.head {
+    background-color: gray;
+}
+
+.mid {
+    background-color: gray;
+    margin: 8px 0px;
+}
+
+.bottom {
+    background-color: rgb(253, 253, 154);
+}
+
+@media only screen and (max-width: 480px){
+    .bottom span{
+        display: none;
+    }
+    .bottom:after {
+        content: "less than or equal to 480px";
+        font-weight: bold;
+    }
+}
+
+@media only screen and (min-width: 481px){
+    .bottom span{
+        display: none;
+    }
+    .bottom:after {
+        content: "between 481px and 1023px";
+        font-weight: bold;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .bottom span{
+        display: none;
+    }
+    .bottom:after {
+        content: "greater than or equal to 1024px";
+        font-weight: bold;
+    }
+}
