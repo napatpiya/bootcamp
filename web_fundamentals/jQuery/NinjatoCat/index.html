@@ -8,8 +8,10 @@
     <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <title>Ninja to Cat</title>
     <style>
+        
         img {
             margin: 3px 20px;
+            display: block;
         }
     </style>
 </head>
@@ -26,6 +28,8 @@
         }
         console.log(output);
         document.getElementById('container').innerHTML = output;
+
+        
 
         $('img').click(function() {
             var tmp = $(this).attr('data-alt-src');
