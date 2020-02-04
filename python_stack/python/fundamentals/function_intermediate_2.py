@@ -40,16 +40,23 @@ students = [
 # first_name - Mark, last_name - Guillen
 # first_name - KB, last_name - Tonel
 
-def iterateDictionary(students):
-    for i in range(len(students)):
-        s = ""
-        c = 0
-        for key, val in students[i].items():
-            s = s + (f"{key} - {val}")
-            if c == 0:
-                s = s + (", ")
-            c += 1
-        print(s)
+# def iterateDictionary(students):
+#     for i in range(len(students)):
+#         s = ""
+#         c = 0
+#         for key, val in students[i].items():
+#             s = s + (f"{key} - {val}")
+#             if c == 0:
+#                 s = s + (", ")
+#             c += 1
+#         print(s)
+
+def iterateDictionary(somelist):
+    for student_dictionary in somelist:
+        displaystr = ""
+        for key, val in student_dictionary.items():
+            displaystr += f"{key} - {val} "
+        print(displaystr)
 
 iterateDictionary(students)
 
@@ -66,9 +73,13 @@ iterateDictionary(students)
 # Guillen
 # Tonel
 
-def iterateDictionary2(key_name, some_list):
-    for i in range(len(students)):
-        print(students[i][key_name])
+# def iterateDictionary2(key_name, some_list):
+#     for i in range(len(students)):
+#         print(students[i][key_name])
+
+def iterateDictionary2(keyname, somelist):
+    for dic in somelist:
+        print(dic[keyname])
 
 iterateDictionary2('first_name', students)
 iterateDictionary2('last_name', students)
@@ -101,16 +112,24 @@ dojo = {
 # Minh
 # Devon
 
+# def printInfo(some_dict):
+#     for key in some_dict.keys():
+#         if key == "locations":
+#             print(f"{len(some_dict[key])} LOCATIONS")
+#         elif key == "instructors":
+#             print(f"{len(some_dict[key])} INSTRUCTORS")
+        
+#         for i in range(0, len(some_dict[key])):
+#             print(some_dict[key][i])
+        
+#         print("")
+
 def printInfo(some_dict):
     for key in some_dict.keys():
-        if key == "locations":
-            print(f"{len(some_dict[key])} LOCATIONS")
-        elif key == "instructors":
-            print(f"{len(some_dict[key])} INSTRUCTORS")
-        
-        for i in range(0, len(some_dict[key])):
-            print(some_dict[key][i])
-        
+        print(f"{len(some_dict[key])} {key.upper()}")
+        for value in some_dict[key]:
+            print(value)
+
         print("")
 
 printInfo(dojo)
