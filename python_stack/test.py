@@ -22,3 +22,21 @@ print(a)
 
 a[0], a[2] = a[2], a[0]
 print(a)
+
+
+my_arr = [1,2,3,4,5]
+# define a function that squares values
+def square(num):
+    return num ** 2
+# invoke map function
+print(list(map(square, my_arr)))
+print(my_arr)
+
+my_list = list(map(square, my_arr))
+print(my_list)
+
+
+# map()
+# reduce()
+# sort() - lambda is optional
+# filter()

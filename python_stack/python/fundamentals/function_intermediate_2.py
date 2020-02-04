@@ -42,11 +42,9 @@ students = [
 
 def iterateDictionary(students):
     for i in range(len(students)):
-        # newList = students[i].items()
         s = ""
         c = 0
         for key, val in students[i].items():
-            # print(f"{key} - {val}, "),
             s = s + (f"{key} - {val}")
             if c == 0:
                 s = s + (", ")
