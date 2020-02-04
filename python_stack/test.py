@@ -1,11 +1,10 @@
-my_dict = { "name": "Noelle", "language": "Python" }
-
-# another way to iterate through the keys
-for key in my_dict.keys():
-     print(key)
-#to iterate through the values
-for val in my_dict.values():
-     print(val)
-#to iterate through both keys and values
-for key, val in my_dict.items():
-     print(key, " = ", val)
+def a():
+    print(1)
+    x = b()
+    print(x)
+    return 10
+def b():
+    print(3)
+    return 5
+y = a()
+print(y)
