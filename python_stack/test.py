@@ -13,4 +13,12 @@ def validation(s):
     return "valid"
 
 
-print(validation(s))
+# print(validation(s))
+
+
+a = [1,3,5,7,9]
+
+print(a)
+
+a[0], a[2] = a[2], a[0]
+print(a)
