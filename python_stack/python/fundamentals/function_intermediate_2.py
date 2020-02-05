@@ -53,10 +53,10 @@ students = [
 
 def iterateDictionary(somelist):
     for student_dictionary in somelist:
-        displaystr = ""
+        displaystr = []
         for key, val in student_dictionary.items():
-            displaystr += f"{key} - {val} "
-        print(displaystr)
+            displaystr.append(key + " - " + val)
+        print(*displaystr, sep=", ")
 
 iterateDictionary(students)
 
