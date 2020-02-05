@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "\"python.pythonPath\": \"/Users/penguin/Documents/bootcamp/python_stack/my_environments\""
+    "python.pythonPath": "/Users/penguin/Documents/bootcamp/python_stack/my_environments",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
