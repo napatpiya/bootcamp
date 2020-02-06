@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('form_app.urls'))
+    path('', include('form_app.urls')),
+    path('random_word/', include('random_word_app.urls'))
     #path('admin/', admin.site.urls),
 ]
