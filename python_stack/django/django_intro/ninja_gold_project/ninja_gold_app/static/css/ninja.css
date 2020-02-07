@@ -1,0 +1,44 @@
+.container {
+    margin: 0 auto;
+    width: 970px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.score h4 {
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.score {
+    display: inline-block;
+}
+
+.score p {
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: right;
+    padding: 10px 10px 0px 0px;
+}
+
+
+.form1 {
+    margin: 5px;
+    display: inline-block;
+    width: 150px;
+    border: 2px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+.act h4 {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 1px;
+}
+
+.form1 h3 {
+    margin-top: 3px;
+}

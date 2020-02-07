@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ninja.css' %}"> 
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div class="container">
+        <div class="score">
+            <h4>Your Gold:</h4>
+            <p>{{request.session.score}}</p>
+        </div>
+        <div class="stage">
+            <form class='form1' action="/process_money" method="POST">
+                {% csrf_token %}
+                <h3>Farm</h3>
+                <h5>(earn 10-20 golds)</h5>
+                <button type="submit" name="check" value='farm'>Find Gold!</button>
+            </form>
+            <form class='form1' action="/process_money" method="POST">
+                {% csrf_token %}
+                <h3>Cave</h3>
+                <h5>(earn 5-10 golds)</h5>
+                <button type="submit" name="check" value='cave'>Find Gold!</button>
+            </form>
+            <form class='form1' action="/process_money" method="POST">
+                {% csrf_token %}
+                <h3>House</h3>
+                <h5>(earn 2-5 golds)</h5>
+                <button type="submit" name="check" value='house'>Find Gold!</button>
+            </form>
+            <form class='form1' action="/process_money" method="POST">
+                {% csrf_token %}
+                <h3>Casino</h3>
+                <h5>(earn/takes 0-50 golds)</h5>
+                <button type="submit" name="check" value='casino'>Find Gold!</button>
+            </form>
+        </div>
+        <div class="act">
+            <h4>Activities:</h4>
+            {% if request.session.num < 0 %}
+                <textarea name="message" id="" cols="160" rows="10" style="color: red;" readonly="readonly">Earned a casino and lost {{request.session.num}} golds... Ouch.. ({{time}})</textarea>
+            {% else %}
+                <textarea name="message" id="" cols="160" rows="10" style="color: green;" readonly="readonly">Earned {{request.session.num}} golds {{request.session.check}}! ({{time}})</textarea>
+            {% endif %}
+        </div>
+        <div class="reset">
+            <form class='form2' action="reset">
+                <input type="submit" value="RESET!">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
