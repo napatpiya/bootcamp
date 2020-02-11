@@ -1,0 +1,45 @@
+python3 manage.py shell
+
+>>> from movie_app.models import User
+
+## Create 3 new users ##
+>>> User.objects.create(first_name="Lebron", last_name="James", email_address="lbj@nba.com", age=35)
+The record is: Lebron, James, lbj@nba.com, 35
+>>> User.objects.create(first_name="Kobe", last_name="Bryant", email_address="kb@nba.com", age=41)
+The record is: Kobe, Bryant, kb@nba.com, 41
+>>> User.objects.create(first_name="Michael", last_name="Jordan", email_address="mj@nba.com", age=56)
+The record is: Michael, Jordan, mj@nba.com, 56
+
+## Retrieve all the users ##
+>>> User.objects.all()
+<QuerySet [The record is: Lebron, James, lbj@nba.com, 35, The record is: Kobe, Bryant, kb@nba.com, 41, The record is: Michael, Jordan, mj@nba.com, 56]>
+
+## Retrieve the last user ##
+>>> User.objects.last()
+The record is: Michael, Jordan, mj@nba.com, 56
+
+## Retrieve the first user ##
+>>> User.objects.first()
+The record is: Lebron, James, lbj@nba.com, 35
+
+## Change the user with id-3 so their last name is Pancakes ##
+>>> user3 = User.objects.get(id=3)
+>>> user3.last_name = "Pancakes"
+>>> user3.save()
+>>> user3.last_name
+>>> 'Pancakes'
+
+## Delete the user with id-2 from the database ##
+>>> user2 = User.objects.get(id=2)
+>>> user2.delete()
+
+>>> User.objects.all()
+<QuerySet [The record is: Lebron, James, lbj@nba.com, 35, The record is: Michael, Pancakes, mj@nba.com, 56]>
+
+## Get all the users, sorted by their first name ##
+>>> User.objects.all().order_by('first_name')
+<QuerySet [The record is: Lebron, James, lbj@nba.com, 35, The record is: Michael, Pancakes, mj@nba.com, 56]>
+
+## Get all the users, sorted by their first name in descending order ##
+>>> User.objects.all().order_by('-first_name')
+<QuerySet [The record is: Michael, Pancakes, mj@nba.com, 56, The record is: Lebron, James, lbj@nba.com, 35]>
