@@ -1,0 +1,116 @@
+## Run the shell and import your models ##
+>>> from one_to_many_app.models import Dojos, Ninjas
+>>> Dojos.objects.all()
+<QuerySet []>
+>>> Ninjas.objects.all()
+<QuerySet []>
+
+## Create 3 new dojos ##\
+>>> dojo1 = Dojos.objects.create(name="Dojo VA", city="Arlington", state="VA")
+>>> dojo2 = Dojos.objects.create(name="Dojo TX", city="Dallas", state="TX")
+>>> dojo3 = Dojos.objects.create(name="Dojo WA", city="Seattle", state="WA")
+>>> Dojos.objects.all()
+<QuerySet [<Dojos: Dojos object (1)>, <Dojos: Dojos object (2)>, <Dojos: Dojos object (3)>]>
+
+## Delete the 3 dojos you just created ##
+>>> dojo1.delete()\
+(1, \{'one_to_many_app.Ninjas': 0, 'one_to_many_app.Dojos': 1\})
+>>> dojo2.delete()\
+(1, \{'one_to_many_app.Ninjas': 0, 'one_to_many_app.Dojos': 1\})
+>>> dojo3.delete()\
+(1, \{'one_to_many_app.Ninjas': 0, 'one_to_many_app.Dojos': 1\})
+>>> Dojos.objects.all()
+<QuerySet []>
+
+## Create 3 more dojos ##
+>>> dojo1 = Dojos.objects.create(name="Dojo VA", city="Arlington", state="VA")
+>>> dojo2 = Dojos.objects.create(name="Dojo TX", city="Dallas", state="TX")
+>>> dojo3 = Dojos.objects.create(name="Dojo WA", city="Seattle", state="WA")
+>>> Dojos.objects.all()
+<QuerySet [<Dojos: Dojos object (4)>, <Dojos: Dojos object (5)>, <Dojos: Dojos object (6)>]>
+
+## Create 3 ninjas that belong to the first dojo ##
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=4),first_name="Ninja1", last_name="Virginia")
+<Ninjas: Ninjas object (1)>
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=4),first_name="Ninja2", last_name="Virginia")
+<Ninjas: Ninjas object (2)>
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=4),first_name="Ninja3", last_name="Virginia")
+<Ninjas: Ninjas object (3)>
+>>> Ninjas.objects.all()
+<QuerySet [<Ninjas: Ninjas object (1)>, <Ninjas: Ninjas object (2)>, <Ninjas: Ninjas object (3)>]>
+
+## Create 3 ninjas that belong to the second dojo ##
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=5),first_name="Ninja4", last_name="Texas")
+<Ninjas: Ninjas object (4)>
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=5),first_name="Ninja5", last_name="Texas")
+<Ninjas: Ninjas object (5)>
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=5),first_name="Ninja6", last_name="Texas")
+<Ninjas: Ninjas object (6)>
+>>> Dojos.objects.all()
+<QuerySet [<Dojos: Dojos object (4)>, <Dojos: Dojos object (5)>, <Dojos: Dojos object (6)>]>
+>>> Ninjas.objects.all()
+<QuerySet [<Ninjas: Ninjas object (1)>, <Ninjas: Ninjas object (2)>, <Ninjas: Ninjas object (3)>, <Ninjas: Ninjas object (4)>, <Ninjas: Ninjas object (5)>, <Ninjas: Ninjas object (6)>]>
+
+## Create 3 ninjas that belong to the third dojo ##
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=6),first_name="Ninja7", last_name="Washington")
+<Ninjas: Ninjas object (7)>
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=6),first_name="Ninja8", last_name="Washington")
+<Ninjas: Ninjas object (8)>
+>>> Ninjas.objects.create(dojo_id=Dojos.objects.get(id=6),first_name="Ninja9", last_name="Washington")
+<Ninjas: Ninjas object (9)>
+>>> Dojos.objects.all()
+<QuerySet [<Dojos: Dojos object (4)>, <Dojos: Dojos object (5)>, <Dojos: Dojos object (6)>]>
+>>> Ninjas.objects.all()
+<QuerySet [<Ninjas: Ninjas object (1)>, <Ninjas: Ninjas object (2)>, <Ninjas: Ninjas object (3)>, <Ninjas: Ninjas object (4)>, <Ninjas: Ninjas object (5)>, <Ninjas: Ninjas object (6)>, <Ninjas: Ninjas object (7)>, <Ninjas: Ninjas object (8)>, <Ninjas: Ninjas object (9)>]>
+
+## Retrieve all the ninjas from the first dojo ##
+>>> dojo_first = Dojos.objects.first().id
+>>> for name in Ninjas.objects.filter(dojo_id=dojo_first):
+...     print(name.first_name)
+... 
+Ninja1
+Ninja2
+Ninja3
+
+## Retrieve all the ninjas from the last dojo ##
+>>> dojo_last = Dojos.objects.last().id
+>>> for name in Ninjas.objects.filter(dojo_id=dojo_last):
+...     print(name.first_name)
+... 
+Ninja7
+Ninja8
+Ninja9
+
+## Retrieve the last ninja's dojo ##
+>>> Ninjas.objects.last().first_name
+'Ninja9'
+
+## Add a new text field called 'desc' to your Dojo class ##
+desc = models.TextField()
+
+## Create and run the migration files to update the table in your database. if needed, provide a default value of 'old dojo' ##
+# python3 manage.py makemigrations
+You are trying to add a non-nullable field 'desc' to dojos without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python\
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> 'old dojo'
+
+Migrations for 'one_to_many_app':
+    - Add field desc to dojos
+# python3 manage.py migrate       
+Operations to perform:
+Apply all migrations: 
+admin, auth, contenttypes, one_to_many_app, sessions
+
+Running migrations:
+Applying one_to_many_app.0002_dojos_desc...
+OK
+
+## Create a new dojo ##
+>>> Dojos.objects.create(name="Dojo CA", city="Silicon Valley", state="CA")
+<Dojos: Dojos object (7)>
