@@ -1,0 +1,102 @@
+## CREATE 5 BOOKS ##
+>>> c = Books.objects.create(title="C Sharp", desc="C Sharp Book")
+>>> java = Books.objects.create(title="Java", desc="Java Book")
+>>> python = Books.objects.create(title="Python", desc="Python Book")
+>>> ruby = Books.objects.create(title="Ruby", desc="Ruby Book")
+>>> php = Books.objects.create(title="PHP", desc="PHP Book")
+
+## CREATE 5 AUTHORS ##
+>>> jane = Authors.objects.create(first_name="Jane", last_name="Austen")
+>>> emily = Authors.objects.create(first_name="Emily", last_name="Dickinson")
+>>> fyodor = Authors.objects.create(first_name="Fyodor", last_name="Dostoevksy")
+>>> william = Authors.objects.create(first_name="William", last_name="Shakespeare")
+>>> lau = Authors.objects.create(first_name="Lau", last_name="Tzu")
+
+## CHANGE NAME OF THE C SHARP ##
+>>> c.title = 'C#'
+>>> c.save()
+
+## CHANGE THE FIRST NAME OF THE 4TH AUTHOR TO BILL ##
+>>> author = Authors.objects.get(id=4)
+>>> author.first_name = 'Bill'
+
+>>> author = Authors.objects.get(id=1)
+>>> author2 = Authors.objects.get(id=2)
+>>> author3 = Authors.objects.get(id=3)
+>>> author4 = Authors.objects.get(id=4)
+>>> author5 = Authors.objects.get(id=5)
+>>> book1 = Books.objects.get(id=1)
+>>> book2 = Books.objects.get(id=2)
+>>> book3 = Books.objects.get(id=3)
+>>> book4 = Books.objects.get(id=4)
+>>> book5 = Books.objects.get(id=5)
+
+## ASSIGN THE FIRST ATUTHOR TO THE FIRST 2 BOOKS ##
+>>> author.book.add(book1)
+>>> author.book.add(book2)
+
+## ASSIGN THE SECOND AUTHOR TO THE FIRST 3 BOOKS ##
+>>> author2.book.add(book1)
+>>> author2.book.add(book2)
+>>> author2.book.add(book3)
+
+## ASSIGN THE THIRD AUTHOR TO THE FIRST 4 BOOKS ##
+>>> author3.book.add(book1)
+>>> author3.book.add(book2)
+>>> author3.book.add(book3)
+>>> author3.book.add(book4)
+
+## ASSIGN THE FOURTH AUTHOR TO THE FIRST 5 BOOKS ##
+>>> author4.book.add(book1)
+>>> author4.book.add(book2)
+>>> author4.book.add(book3)
+>>> author4.book.add(book4)
+>>> author4.book.add(book5)
+
+## RETRIEVE ALL THE AUTHORS FOR THE 3RD BOOK ##
+>>> for name in book3.author.all():
+...     print(name.first_name)
+... 
+Emily
+Fyodor
+William
+
+
+## REMOVE THE FIRST AUTHOR OF THE 3RD BOOK ##
+>>> book3.author.remove(book3.author.first())
+
+>>> book3.author.remove(book3.author.first())
+>>> for name in book3.author.all():
+...     print(name.first_name)
+... 
+Fyodor
+William
+
+## ADD THE 5TH AUTHOR AS ONE OF THE AUTHORS OF THE 2RD BOOK ##
+>>> book2.author.add(author5)
+
+>>> for name in book2.author.all():
+...     print(name.first_name)
+... 
+Jane
+Emily
+Fyodor
+William
+Lau
+
+
+## FIND ALL THE BOOKS THAT THE 3RD AUTHOR IS PART OF ##
+>>> for name in author3.book.all():
+...     print(name.title)
+... 
+C#
+Java
+Python
+Ruby
+
+
+## FIND ALL THE AUTHORS THAT CONTRIBUTED TO THE 5TH BOOK ##
+>>> for name in book5.author.all():
+...     print(name.first_name)
+... 
+William
