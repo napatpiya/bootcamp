@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Book Store</title>
+</head>
+<body>
+    <div class="container">
+        <div class="add_author">
+            <h1>Add a Author</h1>
+            <form action="/addauthor" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" name="fname">
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" name="lname">
+            </div>
+              <div class="form-group">
+                  <label for="notes">Notes</label>
+                  <textarea class="form-control" name="notes" rows="3"></textarea>
+                </div>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+
+        <div class="show_table">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for val in author %}
+                  <tr>
+                    <th scope="row">{{val.id}}</th>
+                    <td>{{val.first_name}} {{val.last_name}}</td>
+                    <td><a href="./authors/{{val.id}}">View</a></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

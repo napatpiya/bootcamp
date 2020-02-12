@@ -1,0 +1,39 @@
+.add_book {
+    display: inline-block;
+    width: 250px;
+    margin: 50px;
+}
+
+.add_author {
+    display: inline-block;
+    width: 250px;
+    margin: 50px;
+}
+
+.show_table {
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+    margin: 80px;
+    float: right;
+}
+
+.bookinfo {
+    margin: 50px;
+}
+
+.bookinfo h3 {
+    margin-bottom: 30px;
+}
+
+.authorinfo {
+    margin: 50px;
+}
+
+span {
+    font-weight: bolder;
+}
+
+.form1 {
+    margin-left: 50px;
+}
