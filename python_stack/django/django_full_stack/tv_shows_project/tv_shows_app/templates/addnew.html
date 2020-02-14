@@ -25,25 +25,45 @@
                 <a href="{% url 'shows' %}" class="btn btn-primary" style="float: right;">Go Back</a>
             </div>
         </div>
+        <div style="color: red;"><strong>
+            {% if messages %}
+                {% for message in messages %}
+                    <p>**{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            </strong>
+        </div>
         <form action="/shows/create" method="POST">
             {% csrf_token %}
             <div class="form-group">
                 <label for="inputTitle">Title</label>
-                <input type="text" class="form-control" id="inputTitle" name="title" required>
+                <input type="text" class="form-control" id="inputTitle" name="title" value="{{request.session.title}}">
+                <div>
+                    
+                </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputNetwork">Network</label>
-                <input type="text" class="form-control" id="inputNetwork" name="network" required>
+                <input type="text" class="form-control" id="inputNetwork" name="network" value="{{request.session.network}}">
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputDate">Release Date</label>
-                <input type="date" class="form-control" id="inputDate" name="reldate" required>
+                <input type="date" class="form-control" id="inputDate" name="reldate" value="{{request.session.reldate}}" required>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
               </div>
             </div>
             <div class="form-group">
                 <label for="inputDescripton">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc" required></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc">{{request.session.desc}}</textarea>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
