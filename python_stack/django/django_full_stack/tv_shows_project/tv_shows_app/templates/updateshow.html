@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Create</title>
+    <style>
+        .head {
+            margin: 30px 0px;
+        }
+
+        button {
+            margin: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head form-row">
+            <div class="form-group col-md-10">
+                <h1>Edit Show {{show.id}}</h1>
+            </div>
+            <div class="form-group col-md-2">
+                <a href="{% url 'shows' %}" class="btn btn-primary" style="float: right;">Go Back</a>
+            </div>
+        </div>
+        <form action="/shows/{{show.id}}/update" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputTitle">Title</label>
+                <input type="text" class="form-control" id="inputTitle" name="title" value="{{show.title}}" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputNetwork">Network</label>
+                <input type="text" class="form-control" id="inputNetwork" name="network" value="{{show.network}}" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputDate">Release Date</label>
+                <input type="date" class="form-control" id="inputDate" name="reldate" value="{{show.releasedate|date:'Y-m-d'}}" required>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDescripton">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc" required>{{show.description}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</body>
+</html>

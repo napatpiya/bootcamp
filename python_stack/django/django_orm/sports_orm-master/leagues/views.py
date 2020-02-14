@@ -9,7 +9,7 @@ def index(request):
 		"teams": Team.objects.all(),
 		"players": Player.objects.all(),
 	}
-	return render(request, "leagues/index.html", context)
+	return render(request, "index.html", context)
 
 def make_data(request):
 	team_maker.gen_leagues(10)

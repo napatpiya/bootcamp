@@ -4,7 +4,7 @@
 		<title>Sports Leagues</title>
 	</head>
 	<body>
-		<h1>Leagues</h1>
+		<!--<h1>Leagues</h1>
 		<ol>
 			{% for league in leagues %}
 				<li>{{league.name}}</li>
@@ -26,6 +26,15 @@
 				<li>{{player.first_name}} {{player.last_name}}</li>
 			{% empty %}
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+			{% endfor %}
+		</ol>-->
+		<h1>Simple Level 1</h1>
+		<h3>Find all baseball leagues</h3>
+		<ol>
+			{% for league in leagues %}
+				{% if league.sport == 'Baseball' %}
+					<li>{{league.name}} {{league.sport}}</li>
+				{% endif %}
 			{% endfor %}
 		</ol>
 	</body>
