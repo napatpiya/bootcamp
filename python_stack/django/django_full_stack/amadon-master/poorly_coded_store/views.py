@@ -20,11 +20,14 @@ def checkout(request):
 def calc(request):
     print(request.POST)
     quantity_from_form = int(request.POST["quantity"])
-    price_from_form = float(request.POST["price"])
-    total_charge = quantity_from_form * price_from_form
-    request.session['total'] = total_charge
-    request.session['qtt'] += int(request.POST["quantity"])
-    request.session['sum'] += total_charge
+    #price_from_form = float(request.POST["price"])
+    price_from_db = Product.objects.get(id=request.POST['product_id'])
+    price_is = price_from_db.price
+    #total_charge = quantity_from_form * price_from_form
+    totle_charge = quantity_from_form * price_is
+    #request.session['total'] = total_charge
+    #request.session['qtt'] += int(request.POST["quantity"])
+    #request.session['sum'] += total_charge
     print("Charging credit card...")
     #Order.objects.create(quantity_ordered=quantity_from_form, total_price=total_charge)
     return redirect("/checkout")

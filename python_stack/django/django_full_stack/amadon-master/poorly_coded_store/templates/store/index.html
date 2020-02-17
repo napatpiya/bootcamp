@@ -31,6 +31,7 @@
                         <form action="/calc" method="POST">
                             {% csrf_token %}
                             <td>{{product.description}}</td>
+                            <input type="hidden" name="product_id" value="{{product.id}}">
                             <td><input type="hidden" class="form-control" name="price" value="{{product.price}}">{{product.price}}</td>
                             <td><select class="form-control" name="quantity">
                                 <option value="1">1</option>              
