@@ -42,9 +42,42 @@ def register(request):
 
 def wall(request):
     context = {
-        'loginuser': Users.objects.get(id=request.session['login_id'])
+        'loginuser': Users.objects.get(id=request.session['login_id']),
+        'allmessage': Messages.objects.all(),
+        'allcomment': Comments.objects.all()
     }
     return render(request, "wall.html", context)
+
+def createmessage(request):
+    print(request.POST)
+    request.session['check'] = "post"
+    errors = Users.objects.postvalidator(request.POST, request)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect("/wall")
+    request.session['check'] = ""
+    Messages.objects.create(message=request.POST['post'], user=Users.objects.get(id=request.session['login_id']))
+    return redirect("/wall")
+
+def createcomment(request):
+    print(request.POST)
+    request.session['check'] = "comment"
+    request.session['mess_id'] = int(request.POST['mess_id'])
+    errors = Users.objects.commvalidator(request.POST, request)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect("/wall")
+    request.session['check'] = ""
+    request.session['mess_id'] = ""
+    Comments.objects.create(comment=request.POST['comment'], user=Users.objects.get(id=request.session['login_id']), message=Messages.objects.get(id=request.POST['mess_id']))
+    return redirect("/wall")
+
+def delete(request, commid):
+    comm = Comments.objects.get(id=commid)
+    comm.delete()
+    return redirect("/wall")
 
 def logout(request):
     request.session.clear()

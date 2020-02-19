@@ -3,10 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Wall</title>
+
+    <style>
+        h1 {
+            font-size: 22px;
+        }
+        .post {
+            margin: 30px 70px;
+            min-height: 200px;
+        }
+        button {
+            float: right;
+        }
+        .message {
+            margin: 20px 70px 50px 70px;
+        }
+        p {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .comment {
+            padding-left: 60px;
+            padding-right: 30px;
+        }
+        h6 {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        a {
+            display: inline-block;
+        }
+        span {
+          color: red;
+          font-size: 14px;
+        }
+        hr {
+            margin: 20px 0px;
+            padding: 50px 0px;
+        }
+    </style>
 </head>
 <body>
-    <h1>CodingDojo Wall</h1>
-    <h3>{{loginuser.first_name}} {{loginuser.last_name}}</h3>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <div class="col">
+                <h1>CodingDojo Wall</h1>
+            </div>
+            <div class="col-md-auto">
+                <h7>Welcome! {{loginuser.first_name}} {{loginuser.last_name}}</h7>
+            </div>
+            <div class="col-md-auto">
+                <a href="/logout" class="btn btn-primary">log off</a>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="post">
+            <form action="/createmessage" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="Textarea1">Post a message:</label>
+                    {% if messages %}
+                        {% if request.session.check == 'post' %}
+                            {% for message in messages %}
+                                <p><span>**{{message}}</span></p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    <textarea class="form-control" id="Textarea1" rows="3" name="post"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post a message</button>
+            </form>
+        </div>
+        {% for mess in allmessage %}
+            <div class="message">
+                <h6>{{mess.user.first_name}} {{mess.user.last_name}} - {{mess.created_at|date:'F d, Y'}}</h6>
+                <p>{{mess.message}}</p>
+                <!-- <h1>{{mess.id}}</h1> -->
+                <form class="comment" action="/createcomment" method="POST">
+                    {% for comm in mess.message_com.all %}
+                        <h6>{{comm.user.first_name}} {{comm.user.last_name}} - {{comm.created_at|date:'F d, Y'}}</h6>
+                        {% if loginuser.id == comm.user.id %}
+                            <a href="/delete/{{comm.id}}" class="btn btn-danger">Delete</a>
+                        {% endif %}
+                        <a href=""></a>
+                        <p>{{comm.comment}}</p>
+                    {% endfor %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="hidden" name="mess_id" value={{mess.id}}>
+                        <label for="Textarea2">Post a comment:</label>
+                        {% if messages and mess.id == request.session.mess_id %}
+                            {% if request.session.check == 'comment' %}
+                                {% for message in messages %}
+                                    <p><span>**{{message}}</span></p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
+                        <textarea class="form-control" id="Textarea2" rows="3" name="comment"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Post a comment</button>
+                </form>
+            </div>
+            <!-- <hr> -->
+        {% endfor %}
+    </div>
 </body>
 </html>

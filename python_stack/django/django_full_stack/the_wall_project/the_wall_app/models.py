@@ -43,6 +43,17 @@ class ValiManager(models.Manager):
                 errors['lemail'] = "Your email is not in the database"        
         return errors
 
+    def postvalidator(self, postData, request):
+        errors = {}
+        if len(postData['post']) < 5:
+            errors["post"] = "Post should be at least 5 characters"      
+        return errors
+    
+    def commvalidator(self, postData, request):
+        errors = {}
+        if len(postData['comment']) < 5:
+            errors["comment"] = "Comment should be at least 5 characters"      
+        return errors
 
 class Users(models.Model):
     first_name = models.CharField(max_length=45)

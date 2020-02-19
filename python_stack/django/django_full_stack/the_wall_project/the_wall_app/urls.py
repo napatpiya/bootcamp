@@ -6,5 +6,8 @@ urlpatterns = [
     path('login', views.login),
     path('register', views.register),
     path('wall', views.wall),
-    path('logout', views.logout)
+    path('createmessage', views.createmessage),
+    path('createcomment', views.createcomment),
+    path('delete/<int:commid>', views.delete),
+    path('logout', views.logout),
 ]
