@@ -43,7 +43,8 @@ def register(request):
 def wall(request):
     context = {
         'loginuser': Users.objects.get(id=request.session['login_id']),
-        'allmessage': Messages.objects.all(),
+        # 'allmessage': Messages.objects.all(),
+        'allmessage': Messages.objects.all().order_by('-created_at'),
         'allcomment': Comments.objects.all()
     }
     return render(request, "wall.html", context)

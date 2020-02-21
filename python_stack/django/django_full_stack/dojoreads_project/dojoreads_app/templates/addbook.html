@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Add Book and Review</title>
+    <style>
+        .content {
+            margin: 50px 35px;
+        }
+
+        h1 {
+            font-size: 22px;
+        }
+        
+        .authortitle {
+            margin: 0px 0px 6px 16px;
+        }
+
+        .authortitle2 {
+            margin: 0px 0px 16px 16px;
+        }
+
+        .author {
+            margin: 0px 40px 16px 40px;
+        }
+        
+        label {
+            margin-right: 20px;
+        }
+
+        button {
+            float: right;
+            margin: 30px 350px;
+        }
+
+        span {
+          color: red;
+          font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="col">
+                    
+                </div>
+                <div class="col-md-auto">
+                    <a href="/books" class="">Home</a>
+                </div>
+                <div class="col-md-auto">
+                    <a href="/logout" class="">Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div class="content">
+            <h1>Add a New Book Title and a Review:</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    <p><span>**{{message}}</span></p>
+                {% endfor %}
+            {% endif %}
+            <form action="/savebook" method="POST">
+                {% csrf_token %}
+                <div class="form-group col-8">
+                    <label for="booktitle">Book Title:</label>
+                    <input type="text" class="form-control" name="booktitle" id="" value="{{request.session.booktitle}}" required>
+                </div>
+                <div class="form-group authortitle">
+                    <label for="booktitle">Author:</label>
+                </div>
+                <div class="form-group row author">
+                    <label for="booktitle">Choose from the list:</label>
+                    <select class="form-control col-6" name="bookauthor1" id="">
+                        <option value="0">--Please select the author--</option>
+                        {% for name in allauthors %}
+                            <option value="{{name.name}}">{{name.name}}</option>   
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group row author">
+                    <label for="booktitle">Or add a new author:</label>
+                    <input type="text" name="bookauthor2" class="form-control col-6" value="{{request.session.bookauthor2}}">
+                </div>
+                <div class="form-group row authortitle2">
+                    <label for="booktitle">Review:</label>
+                    <textarea name="bookreview" class="form-control col-7" cols="10" rows="6">{{request.session.bookreview}}</textarea>
+                </div>
+                <div class="form-group row authortitle">
+                    <label for="booktitle">Rating:</label>
+                    <select class="form-control col-1" name="bookrating" required>
+                        <option value="nostar">--Star--</option>
+                        <option value="">0</option>
+                        <option value="*">1</option>
+                        <option value="**">2</option>
+                        <option value="***">3</option>
+                        <option value="****">4</option>
+                        <option value="*****">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add Book and Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

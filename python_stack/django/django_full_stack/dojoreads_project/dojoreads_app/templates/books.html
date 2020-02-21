@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Books Home</title>
+    <style>
+        h1 {
+            font-size: 18px;
+        }
+
+        h5 {
+            font-size: 22px;
+        }
+        .content {
+            margin: 50px 35px;
+        }
+
+        .bookreview {
+            margin: 30px 0px;
+        }
+
+        p {
+            margin: 0px;
+        }
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="col">
+                    <h1>Welcome, {{user.first_name}}!</h1>
+                </div>
+                <div class="col-md-auto">
+                    <a href="/addbook" class="">Add Book and Review</a>
+                </div>
+                <div class="col-md-auto">
+                    <a href="/logout" class="">Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Recent Book Reviews:</h5>
+                    {% for reviews in lastreview %}
+                    <div class="form-group bookreview">
+                        <a href="/bookinfo/{{reviews.book.id}}">{{reviews.book.title}}</a>
+                        <p>Rating: 
+                            {% for i in reviews.rating %}
+                                <span class="fa fa-star checked"></span>
+                            {% endfor %}</p>
+                        <p><a href="/users/{{reviews.user.id}}">{{reviews.user.first_name}}</a> says: {{reviews.review}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-6">
+                    <h5>Other Books with Reviews:</h5>
+                    <div class="dropdown-menu">
+                        <h6 class="dropdown-header">Dropdown header</h6>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                    </div>
+                    <div class="list-group">
+                        {% for book in bookreview %}
+                            <a href="/bookinfo/{{book.id}}" class="list-group-item list-group-item-action">{{book.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

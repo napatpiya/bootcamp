@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Add Book and Review</title>
+    <style>
+        h1 {
+            margin-top: 30px;
+            font-size: 22px;
+        }
+        label {
+            margin-right: 20px;
+        }
+        .rate {
+            margin-left: 2px;
+        }
+        button {
+            float: right;
+        }
+        span {
+          color: red;
+          font-size: 14px;
+        }
+        .checked {
+            color: orange;
+        }
+        .unchecked {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="col">
+                    
+                </div>
+                <div class="col-md-auto">
+                    <a href="/books" class="">Home</a>
+                </div>
+                <div class="col-md-auto">
+                    <a href="/logout" class="">Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div class="content">
+            <h1>{{book.title}}</h1>
+            <p>Author: {{book.author.name}}</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Reviews:</p>
+                    {% for reviews in allreviews %}
+                        <hr>
+                        <p>Rating: 
+                        {% for i in reviews.rating %}
+                            <span class="fa fa-star checked"></span>
+                        {% endfor %}</p>
+                        <p><a href="/users/{{reviews.user.id}}">{{reviews.user.first_name}}</a> says: {{reviews.review}}</p>
+                        <br>
+                        <p><i>Posted on: {{reviews.created_at|date:'F d, Y'}}</i>
+                        {% if request.session.login_id == reviews.user.id %}
+                            <a href="/delete/{{reviews.id}}/{{book.id}}" class="btn btn-outline-danger btn-sm" style="float: right;">Delete</a>
+                        {% endif %}</p>
+                    {% endfor %}
+                </div>
+                <div class="col-md-6">
+                    <form action="/addreview/{{book.id}}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="booktitle">Add a Review:</label>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p><span>**{{message}}</span></p>
+                                {% endfor %}
+                            {% endif %}
+                            <textarea name="bookreview" class="form-control" id="" cols="30" rows="4">{{request.session.bookreview}}</textarea>
+                        </div>
+                        <div class="form-group row rate">
+                            <label for="booktitle">Rating:</label>
+                            <select class="form-control col-2" name="bookrating" required>
+                                <option value="nostar">--Star--</option>
+                                <option value="">0</option>
+                                <option value="*">1</option>
+                                <option value="**">2</option>
+                                <option value="***">3</option>
+                                <option value="****">4</option>
+                                <option value="*****">5</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>User Reviews</title>
+    <style>
+        h1 {
+            font-size: 22px;
+            margin: 30px 0px 20px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="col">
+                    
+                </div>
+                <div class="col-md-auto">
+                    <a href="/books" class="">Home</a>
+                </div>
+                <div class="col-md-auto">
+                    <a href="/addbook" class="">Add Book and Review</a>
+                </div>
+                <div class="col-md-auto">
+                    <a href="/logout" class="">Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div class="content">
+            <h1>User Alias: {{user.alias}}</h1>
+            <p>Name: {{user.first_name}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Total Reviews: {{countreview}}</p>
+            <br><br>
+            <p>Posted Reviews on the following books:</p>
+            <div class="col">
+            {% for book in books %}
+                <p><a href="/bookinfo/{{book.book.id}}">{{book.book.title}}</a></p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
