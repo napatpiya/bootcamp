@@ -40,7 +40,7 @@ class ValiManager(models.Manager):
                     errors['lpass'] = "Incorrect password, please try again."
             else:
                 request.session['lemail'] = ""
-                errors['lemail'] = "Your email is not in the database"        
+                errors['lemail'] = "Email doesn't exist. Please regiester first."        
         return errors
 
     def savebookvalidator(self, postData, request):
