@@ -1,75 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Demo: Lazy Loader</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Patto - Free photos & videos</title>
     <style>
-        #myScroll {
-            border: 1px solid #999;
+        body {
+            height: 100%;
+            width: 100%;
         }
-
-        p {
-            border: 1px solid #ccc;
-            padding: 50px;
-            text-align: center;
+        .header {
+            padding: 15px 30px;
+            background-color: white;
         }
-
-        .loading {
-            color: red;
+        .jumbotron {
+            background: url('headpic2.jpg') no-repeat center center fixed;
+            padding-top: 20%;
+            padding-bottom: 25%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            color:white;
+            /* min-width: 100%;
+            min-height: 100%; */
         }
-        .dynamic {
-            background-color:#ccc;
-            color:#000;
+        /* img {
+            max-height: 400px;
+            width: 100%;
+            transform: scale(3);
+        }*/
+        .col-4 {
+            padding: 0px 10px;
+        }
+        .allpic {
+            padding: 20px 60px;
+            min-height: 250px;
+        }
+        .photo {
+            padding-bottom: 15px;
+        }
+        .photo img{
+            width: 100%;
         }
     </style>
-    <script>
-		var counter=0;
-        $(window).scroll(function () {
-            if ($(window).scrollTop() == $(document).height() - $(window).height() && counter < 2) {
-                appendData();
-            }
-        });
-        function appendData() {
-            var html = '';
-            for (i = 0; i < 10; i++) {
-                html += '<p class="dynamic">Dynamic Data :  This is test data.<br />Next line.</p>';
-            }
-            $('#myScroll').append(html);
-            counter++;
-
-            if(counter==2) {
-                $('#myScroll').append('<button id="uniqueButton" style="margin-left: 50%; background-color: powderblue;">Click</button><br /><br />');
-            }
-        }
-    </script>
 </head>
 <body>
-    <div id="myScroll">
-        <p>
-            Contents will load here!!!.<br />
-        </p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
-        <p >This is test data.<br />Next line.</p>
+    <div class="navi">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light header">
+            <a class="navbar-brand" href="#">Patto</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Videos</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                    </li> -->
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <a href="#" class="btn">Login</a>
+                <a href="#" class="btn">Sign up</a>
+            </div>
+        </nav>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Free photos & videos</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+    <!-- <div class="container-fluid">
+        <div class="row allpic">
+            <img src="./images/001.jpeg" alt="">
+            <img src="./images/002.jpeg" alt="">
+            <img src="./images/003.jpeg" alt="">
+            <img src="./images/004.jpeg" alt="">
+            <img src="./images/005.jpeg" alt="">
+            <img src="./images/006.jpeg" alt="">
+            <img src="./images/007.jpeg" alt="">
+            <img src="./images/008.jpeg" alt="">
+        </div>
+    </div> -->
+    <div class="container-fluid">
+        <div class="row allpic">
+            <div class="col-4">
+                <div class="photo">
+                    <img src="./images/001.jpeg" alt="">
+                </div>
+                <div class="photo">
+                    <img src="./images/004.jpeg" alt="">
+                </div>
+                <div class="photo">
+                    <img src="./images/007.jpeg" alt="">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="photo">
+                    <img src="./images/002.jpeg" alt="">
+                </div>
+                <div class="photo">
+                    <img src="./images/005.jpeg" alt="">
+                </div>
+                <div class="photo">
+                    <img src="./images/008.jpeg" alt="">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="photo">
+                    <img src="./images/003.jpeg" alt="">
+                </div>
+                <div class="photo">
+                    <img src="./images/006.jpeg" alt="">
+                </div>
+            </div>
+            <!-- <div class="col-3">
+                <div class="photo">
+                    <img src="./images/004.jpeg" alt="">
+                </div>
+            </div> -->
+        </div>
     </div>
 </body>
 </html>
