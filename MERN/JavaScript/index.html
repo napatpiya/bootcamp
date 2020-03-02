@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        #array {
+            display: flex;
+            align-items: flex-end;
+            justify-content: start;
+        }
+        .val {
+            height: 50px;
+            width: 50px;
+            background-color: cyan;
+            outline: 1px solid rebeccapurple;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="array"></div>
+    <hr>
+    <button id="reverse">Reverse</button>
+    <button id="bubble">Bubble Sort</button>
+    <button id="selection">Selection Sort</button>
+    <button id="insertion">Insertion Sort</button>
+
+    <script>
+        const arr = [30,70,50,40,80,60,90,20];
+
+        function drawArray() {
+            let output = "";
+            for(let val of arr) {
+                output += `<div id="#${val}" class="val" style="height: ${val}px;">${val}</div>`;
+            }
+            $("#array").html(output);
+        }
+        drawArray();
+
+        function reverse() {
+            timedForLoop(0, arr.length/2, 1, function(i){
+                let tmp = arr[i];
+                arr[i] = arr[arr.length-1-i];
+                arr[arr.length-1-i] = tmp;
+                drawArray();
+            });
+        }
+
+        function bubble() {
+            timedForLoop(0, arr.length-1, 1, function(i) {
+                for(let j=0; j<arr.length-1-i; j++) {
+                    if(arr[j] > arr[j+1]) {
+                        let tmp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = tmp;
+                        drawArray();
+                    }
+                }
+            });
+        }
+
+        function selection() {
+            timedForLoop(0, arr.length, 1, function(i) {
+                min = i;
+                console.log(min);
+                for(let j=i+1; j<arr.length; j++) {
+                    console.log(j);
+                    if(arr[min] > arr[j]) {
+                        min = j;
+                    } 
+                }
+                let tmp = arr[min];
+                arr[min] = arr[i];
+                arr[i] = tmp;
+                drawArray();
+            });
+        }
+
+        function insertion() {
+            timedForLoop(1, arr.length, 1, function(i) {
+                for(let j=i; j>0; j--) {
+                    if(arr[j] < arr[j-1]) {
+                        let tmp = arr[j];
+                        arr[j] = arr[j-1];
+                        arr[j-1] = tmp;
+                        drawArray();
+                    } 
+                }
+            });
+        }
+
+        $("#reverse").click(reverse);
+        $("#bubble").click(bubble);
+        $("#selection").click(selection);
+        $("#insertion").click(insertion);
+
+        function timedForLoop(start, end, increment, cb) {
+            setTimeout(function() {
+                if(start < end) {
+                    cb(start);
+                    timedForLoop(start+1, end, increment, cb);
+                }
+            }, 1000);
+        }
+
+    </script>
+</body>
+</html>
