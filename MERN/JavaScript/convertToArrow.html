@@ -20,38 +20,24 @@
     <p>
         We just like random interactivity in the site, including a fun effect if you hover over <span id="hover-this">        <b>this.</b></span>
     </p>
-    <!-- <p onmouseover="mouseOverFunction(this)"> -->
     <p id="hover-p">
         Another task: This should be another feature. 
         I want to click anywhere in this paragraph tag and I want to be able to change the background color to whatever is in this input: <input type="text" id="text-input"/>.
     </p>
     <script>
-        // document.getElementById("hover-p").onmouseover = () => setBackgroundColorById("hover-p", "black");
-        document.getElementById("button").onclick = () => setBackgroundColorById("paragraph", "blue");
+        document.getElementById("button").onclick = () => document.getElementById("paragraph").style = "background-color: " + "blue";
 
         document.getElementById("alert").onclick = () => alert(document.getElementById("popup-input").value);
 
-        document.getElementById("popup-input") = () => document.getElementById(id).value;
+        document.getElementById("hover-this").onmouseover = () => document.getElementById("body").style = "background-color: " + "red";
 
-        document.getElementById("hover-this").onmouseover = () => setBackgroundColorById("body", "red");
-            
-        document.getElementById("hover-this").onmouseout = () => setBackgroundColorById("body", "white");
+        document.getElementById("hover-this").onmouseout = () => document.getElementById("body").style = "background-color: " + "white";
 
-        
+        document.getElementById("hover-p").onmouseover = () => document.getElementById("hover-p").style = "background-color: " + "black";
 
-        // function getValueFromId(id){
-        //     return document.getElementById(id).value;
-        // }
-        document.getElementById("hover-p").onclick = () => setBackgroundColorById("hover-p", "red");
+        document.getElementById("hover-p").onmouseout = () => document.getElementById("hover-p").style = "background-color: " + "white";
 
-        document.getElementById("text-input") = () => document.getElementById(id).value;
-
-        // function setBackgroundColorById(id, color){
-        //     document.getElementById(id).style = "background-color: " + color;
-        // }
-        // function mouseOverFunction(el){
-        //     el.style = "background-color: black";
-        // }
+        document.getElementById("hover-p").onclick = () => document.getElementById("hover-p").style = "background-color: " + document.getElementById("text-input").value;
     </script>
 </body>
 </html>
