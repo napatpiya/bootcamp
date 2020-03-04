@@ -89,7 +89,9 @@
                         arr[j] = arr[j-1];
                         arr[j-1] = tmp;
                         drawArray();
-                    } 
+                    } else {
+                        break
+                    }
                 }
             });
         }
@@ -105,7 +107,7 @@
                     cb(start);
                     timedForLoop(start+1, end, increment, cb);
                 }
-            }, 1000);
+            }, 500);
         }
 
     </script>
