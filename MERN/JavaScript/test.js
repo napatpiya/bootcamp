@@ -71,7 +71,7 @@
 
 // console.log(myVar);
 
-// arr = [2,6,3,7,9,1,5,4,10]
+arr = [2,6,3,7,9,1,5,4,10]
 let arr = [5,10,4,6,3,2,1,9,7,8]
 function insertionsort(arr){
     for(let i=1; i<arr.length; i++) {
@@ -90,5 +90,4 @@ function insertionsort(arr){
 }
 
 console.log(insertionsort(arr));
-
 
