@@ -1,9 +1,14 @@
 import React, { component } from 'react';
 import './App.css';
+// import { Provider } from 'styletron-react';
+// import { Client as Styletron } from 'styletron-engine-atomic';
+// import Styletron from 'styletron';
 //import NewComponent from './components/NewComponent';
 //import HelloWorld from './components/HelloWorld';
 //import PersonCard from './components/PersonCard';
-import PersonCard2 from './components/PersonCard2';
+// import PersonCard2 from './components/PersonCard2';
+import PersonCard3 from './components/PersonCard3';
+import SomeOtherComponent from './components/SomeOtherComponent';
 //import MyNewComponent from './components/MyNewComponent';
 
 // function App() {
@@ -61,15 +66,18 @@ import PersonCard2 from './components/PersonCard2';
 //   );
 // }
 
+// const engine = new Styletron();
+
 // ### PersonCard ###
 function App() {
   return (
-    <div className="App">
-      <PersonCard2 firstName="Doe" lastName="Jane" age={45} hairColor="Black" />
-      <PersonCard2 firstName="Smith" lastName="John" age={88} hairColor="Brown" />
-      <PersonCard2 firstName="Fillmore" lastName="Millard" age={50} hairColor="Brown" />
-      <PersonCard2 firstName="Smith" lastName="Maria" age={62} hairColor="Brown" />
-    </div>
+      <div className="App">
+        {/* <PersonCard3 firstName="Doe" lastName="Jane" age={45} hairColor="Black" />
+        <PersonCard3 firstName="Smith" lastName="John" age={88} hairColor="Brown" />
+        <PersonCard3 firstName="Fillmore" lastName="Millard" age={50} hairColor="Brown" />
+        <PersonCard3 firstName="Smith" lastName="Maria" age={62} hairColor="Brown" /> */}
+        <SomeOtherComponent />
+      </div>
   );
 }
 
