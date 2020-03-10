@@ -15,7 +15,7 @@ const FormComponent = props => {
         })
     }
     
-    // let message;
+    let message;
     let message_fname;
     let message_lname;
     let message_email;
@@ -44,7 +44,7 @@ const FormComponent = props => {
     if (state.password.length < 8 && state.password.length > 0) {
         error = 1;
         message_pass = "Password should be at least 8 character.";
-    } else if (state.password !== state.confirmPassword && state.confirmPassword.length > 0) {
+    } else if (state.password != state.confirmPassword && state.confirmPassword.length > 0) {
         error = 1;
         message_cpass = "Passwords must match.";
     }
@@ -54,6 +54,7 @@ const FormComponent = props => {
 
     const onSubmitHandler = event => {
         event.preventDefault();
+        console.log(message_fname);
         if (error === 0 ) {
             setState({
                 ...state,
