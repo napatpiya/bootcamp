@@ -1,35 +1,27 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const Pokemon = props => {
 
-    const [pokemons, setPokemons] = useState([]);
-    const [showpoke, setShowpoke] =  useState(false);
-
-    const getPokemon = e => {
-        e.preventDefault();
-        setPokemons([]);
-        fetch("https://pokeapi.co/api/v2/pokemon")
-          .then(response => {
-            return response.json();
-        }).then(response => {
-            console.log(response.results)
-            let allpoke = response.results;
-            {allpoke.map( (poke) => setPokemons(pokemons.push(poke)))};
-            console.log(pokemons[1].name);
-            setShowpoke(true);
-        }).catch(err=>{
-            console.log(err);
-        });
+const Pokemon = () => {
+    const [pokeName, setPoke]=useState([]);
+    const getPoke = e =>{
+        axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=807")
+        .then( res => setPoke(res.data.results));
     }
 
     return (
         <div className="container">
-            <button className="btn btn-outline-danger" onClick={getPokemon}>Fetch Pokemon</button>
+            <button onClick = {getPoke} className ="btn btn-lrg btn-dark">Fetch pokemon</button>
             <ul>
-                {/* {showpoke ? <li>{pokemons[1]}</li> : <p></p>} */}
+            {
+                pokeName.map((pokemon,i) =>
+                <li className= "list-group-item" key = {i}>{pokemon.name}</li>
+                )
+            }
             </ul>
         </div>
     );
+        
 }
 
 export default Pokemon;
