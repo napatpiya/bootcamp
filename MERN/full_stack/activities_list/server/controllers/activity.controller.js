@@ -33,7 +33,7 @@ module.exports.create = (request, response) => {
 }
 
 module.exports.update = (req, res) => {
-    Activity.findByIdAndUpdate({_id: req.params.id}, req.body, {new:true})
+    Activity.findByIdAndUpdate({_id: req.params.id}, req.body, {runValidators: true})
         .then(updateActivity => res.json(updateActivity))
         .catch(err => res.json(err));
 }

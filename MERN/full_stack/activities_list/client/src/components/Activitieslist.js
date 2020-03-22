@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { navigate } from '@reach/router';
 import axios from 'axios';
 
 const Activitieslist = props => {
 
-    function refreshPage() {
-        window.location.reload(false);
-    }
+    const [activities, setActivities] = useState([]);
 
     function isPast(date) {
         return new Date(date) < new Date(new Date().toDateString());
@@ -16,15 +14,25 @@ const Activitieslist = props => {
     const deleteActivity = (activityId) => {
         axios.delete('http://localhost:8000/api/activities/' + activityId)
             .then(res => {
-                refreshPage()
+                fetchActivities();
             });
     }
+
+    const fetchActivities = () => {
+        axios.get('http://localhost:8000/api/activities')
+            .then( res => setActivities(res.data) )
+            .catch( err => console.log(err) );
+    }
+
+    useEffect(() => {
+        fetchActivities();
+    }, [])
 
     return (
         <div className="columns">
             <div className="column">
                 <h2><strong>Past Activities</strong></h2>
-                { props.activities.filter( a => isPast(a.date)).map( (activity, i) => {
+                { activities.filter( a => isPast(a.date)).map( (activity, i) => {
                     return (
                         <article className="message is-small is-warning" key={i}>
                             <div className="message-header">
@@ -46,7 +54,7 @@ const Activitieslist = props => {
             </div>
             <div className="column">
                 <h2><strong>Today's Activities</strong></h2>
-                { props.activities.filter( a => !isPast(a.date)).map( (activity, i) => {
+                { activities.filter( a => !isPast(a.date)).map( (activity, i) => {
                     return (
                         <article className="message is-small is-danger" key={i}>
                             <div className="message-header">

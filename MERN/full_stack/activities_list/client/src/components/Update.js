@@ -5,16 +5,12 @@ import moment from 'moment';
 
 const Update = props => {
 
-    const { id } = props._id;
+    const { _id } = props._id;
     const [type, setType] = useState();
     const [date, setDate] = useState();
     const [amount, setAmount] = useState();
     const [units, setUnits] = useState();
     const [errors, setErrors] = useState({});
-
-    function refreshPage() {
-        window.location.reload(false);
-    }
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/activities/' + props._id)
@@ -34,16 +30,18 @@ const Update = props => {
             amount,
             units
         })
-            .then(() => {
-                navigate("/");
-                refreshPage();
+            .then( res => {
+                if (res.data.errors) {
+                    setErrors(res.data.errors);
+                } else {
+                   navigate("/");
+                }
             });
     }
 
 
     return (
         <div className="container">
-            {props._id}
             <div className="columns is-centered">
                 <div className="column is-half is-3">
                     <article className="message is-warning">
@@ -64,6 +62,11 @@ const Update = props => {
                                                 <option>Jumping Rope</option>
                                                 <option>Swimming</option>
                                             </select>
+                                            {
+                                                errors.type ? 
+                                                <p className="help is-danger">{errors.type.message}</p> :
+                                                ""
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -73,14 +76,22 @@ const Update = props => {
                                     <div className="control">
                                         <input className="input" type="date" placeholder="Text input" value={date} onChange={ e => setDate(e.target.value)} />
                                     </div>
-                                    <p className="help is-danger">This email is invalid</p>
+                                    {
+                                        errors.date ? 
+                                        <p className="help is-danger">{errors.date.message}</p> :
+                                        ""
+                                    }
                                 </div>
                                 <div className="field">
                                     <label className="label">Amount</label>
                                     <div className="control">
                                         <input className="input" type="number" step="0.1" placeholder="Amount" value={amount} onChange={ e => setAmount(e.target.value)} />
                                     </div>
-                                    <p className="help is-danger">This email is invalid</p>
+                                    {
+                                        errors.amount ? 
+                                        <p className="help is-danger">{errors.amount.message}</p> :
+                                        ""
+                                    }
                                 </div>
 
                                 <div className="field">
@@ -88,7 +99,11 @@ const Update = props => {
                                     <div className="control">
                                         <input className="input" type="text" placeholder="Units" value={units} onChange={ e => setUnits(e.target.value)} />
                                     </div>
-                                    <p className="help is-danger">This email is invalid</p>
+                                    {
+                                        errors.units ? 
+                                        <p className="help is-danger">{errors.units.message}</p> :
+                                        ""
+                                    }
                                 </div>
                                 <br />
                                 <div className="columns is-centered">

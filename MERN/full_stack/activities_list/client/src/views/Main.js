@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from '@reach/router';
-import axios from 'axios';
 import Activitieslist from '../components/Activitieslist';
 import Create from '../components/Create';
 import Update from '../components/Update';
@@ -9,16 +8,6 @@ import { Router } from '@reach/router';
 
 const Main = props => {
 
-    const [activities, setActivities] = useState([]);
-    const [loaded, setLoaded] = useState(false);
-
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/activities')
-            .then(res => {
-                setActivities(res.data);
-                setLoaded(true);
-            })
-    }, [])
 
     return (
         <div className="container">
@@ -67,7 +56,7 @@ const Main = props => {
             </section>
             <br /><br />
             <Router>
-                {loaded && <Activitieslist path="/" activities={activities} />}
+                <Activitieslist path="/" />
                 <Create path="/new" />
                 <Update path="/update/:_id" />
             </Router>

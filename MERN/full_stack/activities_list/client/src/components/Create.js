@@ -8,6 +8,7 @@ const Create = props => {
     const [date, setDate] = useState();
     const [amount, setAmount] = useState(0);
     const [units, setUnits] = useState("");
+    const [errors, setErrors] = useState({});
 
     function refreshPage() {
         window.location.reload(false);
@@ -22,8 +23,13 @@ const Create = props => {
             units
         })
             .then(res => {
-                navigate("/");
-                refreshPage();
+                if (res.data.errors) {
+                    setErrors({});
+                    setErrors(res.data.errors);
+                } else {
+                    setErrors({});
+                    navigate("/");
+                }
             })
             .catch(err => console.log(err))
     }
@@ -50,6 +56,11 @@ const Create = props => {
                                                 <option>Jumping Rope</option>
                                                 <option>Swimming</option>
                                             </select>
+                                            {
+                                                errors.type ? 
+                                                <p className="help is-danger">{errors.type.message}</p> :
+                                                ""
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -59,14 +70,22 @@ const Create = props => {
                                     <div className="control">
                                         <input className="input" type="date" placeholder="Text input" onChange={ e => setDate(e.target.value)} />
                                     </div>
-                                    <p className="help is-danger">This email is invalid</p>
+                                    {
+                                        errors.date ? 
+                                        <p className="help is-danger">{errors.date.message}</p> :
+                                        ""
+                                    }
                                 </div>
                                 <div className="field">
                                     <label className="label">Amount</label>
                                     <div className="control">
                                         <input className="input" type="number" step="0.1" placeholder="Amount" onChange={ e => setAmount(e.target.value)} />
                                     </div>
-                                    <p className="help is-danger">This email is invalid</p>
+                                    {
+                                        errors.amount ? 
+                                        <p className="help is-danger">{errors.amount.message}</p> :
+                                        ""
+                                    }
                                 </div>
 
                                 <div className="field">
@@ -74,7 +93,11 @@ const Create = props => {
                                     <div className="control">
                                         <input className="input" type="text" placeholder="Units" onChange={ e => setUnits(e.target.value)} />
                                     </div>
-                                    <p className="help is-danger">This email is invalid</p>
+                                    {
+                                        errors.units ? 
+                                        <p className="help is-danger">{errors.units.message}</p> :
+                                        ""
+                                    }
                                 </div>
                                 <br />
                                 <div className="columns is-centered">
@@ -83,8 +106,7 @@ const Create = props => {
                                             <button className="button is-warning is-rounded">Submit</button>
                                         </div>
                                         <div className="control">
-                                            <button className="button is-danger is-rounded">Cancel</button>
-                                    
+                                            <button className="button is-danger is-rounded" onClick={ () => navigate("/")}>Cancel</button>
                                         </div>
                                     </div>
                                 </div>

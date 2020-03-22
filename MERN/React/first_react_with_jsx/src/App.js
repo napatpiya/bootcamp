@@ -9,6 +9,7 @@ import './App.css';
 // import PersonCard2 from './components/PersonCard2';
 import PersonCard3 from './components/PersonCard3';
 import SomeOtherComponent from './components/SomeOtherComponent';
+import LoginForm from './components/LoginForm';
 //import MyNewComponent from './components/MyNewComponent';
 
 // function App() {
@@ -76,7 +77,8 @@ function App() {
         <PersonCard3 firstName="Smith" lastName="John" age={88} hairColor="Brown" />
         <PersonCard3 firstName="Fillmore" lastName="Millard" age={50} hairColor="Brown" />
         <PersonCard3 firstName="Smith" lastName="Maria" age={62} hairColor="Brown" /> */}
-        <SomeOtherComponent />
+        {/* <SomeOtherComponent /> */}
+        <LoginForm />
       </div>
   );
 }
