@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/bin/Debug/netcoreapp2.2/Basic13.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/bin/Debug/netcoreapp2.2/Basic13.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/bin/Debug/netcoreapp2.2/Basic13.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/bin/Debug/netcoreapp2.2/Basic13.dll
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/bin/Debug/netcoreapp2.2/Basic13.pdb
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.dll
+/Users/penguin/Documents/bootcamp/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.pdb

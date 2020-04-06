@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.dll
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.pdb
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.dll
+/Users/penguin/Documents/bootcamp/CSharp/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.pdb
