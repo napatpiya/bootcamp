@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/bin/Debug/netcoreapp2.2/HungryNinja.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/bin/Debug/netcoreapp2.2/HungryNinja.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/bin/Debug/netcoreapp2.2/HungryNinja.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/bin/Debug/netcoreapp2.2/HungryNinja.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/bin/Debug/netcoreapp2.2/HungryNinja.pdb
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/obj/Debug/netcoreapp2.2/HungryNinja.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/obj/Debug/netcoreapp2.2/HungryNinja.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/obj/Debug/netcoreapp2.2/HungryNinja.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/obj/Debug/netcoreapp2.2/HungryNinja.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/obj/Debug/netcoreapp2.2/HungryNinja.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/HungryNinja/obj/Debug/netcoreapp2.2/HungryNinja.pdb

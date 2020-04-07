@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/obj/Debug/netcoreapp2.2/ThreeCharacters.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/obj/Debug/netcoreapp2.2/ThreeCharacters.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/obj/Debug/netcoreapp2.2/ThreeCharacters.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/obj/Debug/netcoreapp2.2/ThreeCharacters.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/bin/Debug/netcoreapp2.2/ThreeCharacters.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/bin/Debug/netcoreapp2.2/ThreeCharacters.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/bin/Debug/netcoreapp2.2/ThreeCharacters.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/bin/Debug/netcoreapp2.2/ThreeCharacters.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/bin/Debug/netcoreapp2.2/ThreeCharacters.pdb
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/obj/Debug/netcoreapp2.2/ThreeCharacters.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/ThreeCharacters/obj/Debug/netcoreapp2.2/ThreeCharacters.pdb
