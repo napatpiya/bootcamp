@@ -262,7 +262,7 @@ namespace Basic13
             // EliminateNegatives(array);
             // MinMaxAverage(array);
             // ShiftValues(array);
-            // NumToString(array);
+            NumToString(array);
         }
     }
 }

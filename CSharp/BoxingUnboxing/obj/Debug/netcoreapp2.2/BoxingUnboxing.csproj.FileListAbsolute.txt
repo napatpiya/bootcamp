@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/bin/Debug/netcoreapp2.2/BoxingUnboxing.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/bin/Debug/netcoreapp2.2/BoxingUnboxing.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/bin/Debug/netcoreapp2.2/BoxingUnboxing.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/bin/Debug/netcoreapp2.2/BoxingUnboxing.dll
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/bin/Debug/netcoreapp2.2/BoxingUnboxing.pdb
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/obj/Debug/netcoreapp2.2/BoxingUnboxing.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/obj/Debug/netcoreapp2.2/BoxingUnboxing.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/obj/Debug/netcoreapp2.2/BoxingUnboxing.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/obj/Debug/netcoreapp2.2/BoxingUnboxing.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/obj/Debug/netcoreapp2.2/BoxingUnboxing.dll
+/Users/penguin/Documents/bootcamp/CSharp/BoxingUnboxing/obj/Debug/netcoreapp2.2/BoxingUnboxing.pdb

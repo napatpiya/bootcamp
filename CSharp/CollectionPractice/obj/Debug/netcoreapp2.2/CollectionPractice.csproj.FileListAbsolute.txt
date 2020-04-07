@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/bin/Debug/netcoreapp2.2/CollectionPractice.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/bin/Debug/netcoreapp2.2/CollectionPractice.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/bin/Debug/netcoreapp2.2/CollectionPractice.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/bin/Debug/netcoreapp2.2/CollectionPractice.dll
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/bin/Debug/netcoreapp2.2/CollectionPractice.pdb
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/obj/Debug/netcoreapp2.2/CollectionPractice.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/obj/Debug/netcoreapp2.2/CollectionPractice.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/obj/Debug/netcoreapp2.2/CollectionPractice.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/obj/Debug/netcoreapp2.2/CollectionPractice.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/obj/Debug/netcoreapp2.2/CollectionPractice.dll
+/Users/penguin/Documents/bootcamp/CSharp/CollectionPractice/obj/Debug/netcoreapp2.2/CollectionPractice.pdb
