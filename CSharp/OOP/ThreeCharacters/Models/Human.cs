@@ -28,13 +28,13 @@ namespace ThreeCharacters.Models
         }
          
         // Add a constructor to assign custom values to all fields
-        public Human(string name, int str, int intel, int dex)
+        public Human(string name, int str, int intel, int dex, int hp)
         {
             Name = name;
             Strength = str;
             Intelligence = intel;
             Dexterity = dex;
-            health = 100;
+            health = hp;
         }
          
         // Build Attack method
@@ -44,6 +44,7 @@ namespace ThreeCharacters.Models
             {
                 int dmg = 5 * Strength;
                 target.health -= dmg;
+                Console.WriteLine($"{Name} attacked {target.Name} for {dmg} damage!");
                 return target.health;
             } 
             else

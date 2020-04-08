@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/bin/Debug/netcoreapp2.2/DeckOfCards.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/bin/Debug/netcoreapp2.2/DeckOfCards.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/bin/Debug/netcoreapp2.2/DeckOfCards.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/bin/Debug/netcoreapp2.2/DeckOfCards.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/bin/Debug/netcoreapp2.2/DeckOfCards.pdb
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/obj/Debug/netcoreapp2.2/DeckOfCards.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/obj/Debug/netcoreapp2.2/DeckOfCards.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/obj/Debug/netcoreapp2.2/DeckOfCards.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/obj/Debug/netcoreapp2.2/DeckOfCards.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/obj/Debug/netcoreapp2.2/DeckOfCards.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/DeckOfCards/obj/Debug/netcoreapp2.2/DeckOfCards.pdb
