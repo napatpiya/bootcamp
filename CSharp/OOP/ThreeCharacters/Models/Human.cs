@@ -2,19 +2,20 @@ using System;
 
 namespace ThreeCharacters.Models
 {
-    class Human
+    public class Human
     {
         // Fields for Human
         public string Name;
         public int Strength;
         public int Intelligence;
         public int Dexterity;
-        private int health;
+        protected int health;
          
         // add a public "getter" property to access health
         public int Health
         {
             get { return health; }
+            set { health = value; }
         }
          
         // Add a constructor that takes a value to set Name, and set the remaining fields to default values
@@ -38,13 +39,13 @@ namespace ThreeCharacters.Models
         }
          
         // Build Attack method
-        public int Attack(Human target)
+        public virtual int Attack(Human target)
         {
             if (target is Human)
             {
                 int dmg = 5 * Strength;
                 target.health -= dmg;
-                Console.WriteLine($"{Name} attacked {target.Name} for {dmg} damage!");
+                // Console.WriteLine($"{Name} attacked {target.Name} for {dmg} damage!");
                 return target.health;
             } 
             else
@@ -52,6 +53,11 @@ namespace ThreeCharacters.Models
                 Console.WriteLine("Wrong Target!!");
                 return target.health;
             }
+        }
+
+        public void DisplayStat()
+        {
+            Console.WriteLine($"Name: {Name}\nStrength: {Strength}\nIntelligence: {Intelligence}\nDexterity: {Dexterity}\nHealth: {health}");
         }
     }
 
