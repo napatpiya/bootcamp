@@ -1,0 +1,11 @@
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/bin/Debug/netcoreapp2.2/Phone.deps.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/bin/Debug/netcoreapp2.2/Phone.runtimeconfig.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/bin/Debug/netcoreapp2.2/Phone.runtimeconfig.dev.json
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/bin/Debug/netcoreapp2.2/Phone.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/bin/Debug/netcoreapp2.2/Phone.pdb
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/obj/Debug/netcoreapp2.2/Phone.csprojAssemblyReference.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/obj/Debug/netcoreapp2.2/Phone.csproj.CoreCompileInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/obj/Debug/netcoreapp2.2/Phone.AssemblyInfoInputs.cache
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/obj/Debug/netcoreapp2.2/Phone.AssemblyInfo.cs
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/obj/Debug/netcoreapp2.2/Phone.dll
+/Users/penguin/Documents/bootcamp/CSharp/OOP/Phone/obj/Debug/netcoreapp2.2/Phone.pdb
