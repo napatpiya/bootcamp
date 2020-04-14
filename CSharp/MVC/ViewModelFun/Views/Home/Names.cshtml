@@ -1,0 +1,11 @@
+@model List<Person>
+
+<div class="container" style="text-align: center">
+<h2>Here is a Users!</h2>
+
+@foreach(var name in Model)
+{
+    <p>@name.FirstName @name.LastName</p>
+}
+</div>
+
