@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here are some delicious foods!</h1>
+    @{
+        string[] array = new string[] {
+            "Apple Pie",
+            "Burritos",
+            "Clams Casino",
+            "Donuts"
+        };
+
+        foreach(var name in array){
+            if ( name.Substring(0,1) == "C" ) {
+                <p style="color: red;">@name</p>
+            } else {
+                <p>@name</p>
+            }
+        }
+
+    }
+</body>
+</html>
