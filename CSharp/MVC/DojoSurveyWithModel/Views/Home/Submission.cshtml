@@ -1,0 +1,36 @@
+@using DojoSurveyWithModel.Models
+@model Survey
+
+    <div class="container">
+        <div class="content">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col">
+                    <h2>Submitted Info</h2>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td>@Model.Name</td>
+                            </tr>
+                            <tr>
+                                <td>Dojo Location:</td>
+                                <td>@Model.Location</td>
+                            </tr>
+                            <tr>
+                                <td>Favorite Language:</td>
+                                <td>@Model.Language</td>
+                            </tr>
+                            <tr>
+                                <td>Comment:</td>
+                                <td>@Model.Comment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="/"><button class="btn btn-primary" style="float: right">Go Back</button></a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        
+    </div>
