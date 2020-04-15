@@ -1,17 +1,20 @@
 
+@model Survey
+
     <div class="container">
         <div class="content">
-            <form action="result" method="POST">
+            <form asp-action="submission" asp-controller="Home" method="POST">
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col">
                         <div class="form-group">
-                            <label for="Name">Your Name:</label>
-                            <input type="text" class="form-control" name="name">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control">
+                            <small><span asp-validation-for="Name" style="color: red"></span></small>
                         </div>
                         <div class="form-group">
-                            <label for="location">Dojo Location:</label>
-                            <select class="form-control" name="location" id="">
+                            <label asp-for="Location"></label>
+                            <select class="form-control" asp-for="Location">
                                 <option value="San Jose">San Jose</option>
                                 <option value="Seattle">Seattle</option>
                                 <option value="Dallas">Dallas</option>
@@ -21,16 +24,18 @@
                                 <option value="Oakland">Oakland</option>
                                 <option value="Boise">Boise</option>
                             </select>
+                            <small><span asp-validation-for="Location" style="color: red"></span></small>
                         </div>
                         <div class="form-group">
-                            <label for="favorite">Favorite Language:</label>
-                            <select class="form-control" name="language" id="">
+                            <label asp-for="Language"></label>
+                            <select class="form-control" asp-for="Language">
                                 <option value="HTML">HTML</option>
                                 <option value="JavaScript">JavaScript</option>
                                 <option value="Python">Python</option>
                                 <option value="C#">C#</option>
                                 <option value="MERN">MERN</option>
                             </select>
+                            <small><span asp-validation-for="Language" style="color: red"></span></small>
                         </div>
                     </div>
                     <div class="col-4"></div>
@@ -39,8 +44,9 @@
                     <div class="col-4"></div>
                     <div class="col-4">
                         <div class="form-group">
-                            <label for="comment">Comment (optional):</label>
-                            <textarea class="form-control" name="comment" cols="60" rows="5"></textarea>
+                            <label asp-for="Comment"></label>
+                            <textarea class="form-control" asp-for="Comment" cols="60" rows="5"></textarea>
+                            <small><span asp-validation-for="Comment" style="color: red"></span></small>
                         </div>
                     </div>
                     <div class="col-4"></div>

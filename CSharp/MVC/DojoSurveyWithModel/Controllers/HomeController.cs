@@ -10,15 +10,29 @@ namespace DojoSurveyWithModel.Controllers
 {
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost ("result")]
+        [HttpPost ("submission")]
         public IActionResult Submission(Survey survey)
         {
-            return View(survey);
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("result", survey);
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpGet ("result")]
+        public IActionResult Result(Survey newSurvey)
+        {
+            return View(newSurvey);
         }
 
     }

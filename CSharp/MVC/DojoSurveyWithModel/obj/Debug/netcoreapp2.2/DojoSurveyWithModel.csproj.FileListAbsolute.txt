@@ -27,4 +27,4 @@
 /Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/obj/Debug/netcoreapp2.2/DojoSurveyWithModel.dll
 /Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/obj/Debug/netcoreapp2.2/DojoSurveyWithModel.pdb
 /Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/obj/Debug/netcoreapp2.2/DojoSurveyWithModel.csproj.CopyComplete
-/Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/obj/Debug/netcoreapp2.2/Razor/Views/Home/Submission.g.cshtml.cs
+/Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/obj/Debug/netcoreapp2.2/Razor/Views/Home/Result.g.cshtml.cs

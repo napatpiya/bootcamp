@@ -2961,8 +2961,8 @@
   "RootNamespace": "DojoSurveyWithModel",
   "Documents": [
     {
-      "FilePath": "/Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/Views/Home/Submission.cshtml",
-      "TargetPath": "Views\\Home\\Submission.cshtml",
+      "FilePath": "/Users/penguin/Documents/bootcamp/CSharp/MVC/DojoSurveyWithModel/Views/Home/Result.cshtml",
+      "TargetPath": "Views\\Home\\Result.cshtml",
       "FileKind": "mvc"
     },
     {
