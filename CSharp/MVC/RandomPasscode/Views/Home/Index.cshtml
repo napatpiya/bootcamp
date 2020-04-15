@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="content" style="text-align: center; padding-top: 50px">
+        <h5 style="margin-bottom: 20px;">Random passcode (passcode #@ViewBag.count)</h5>
+        <h3 style="border: 2px solid black; width: 300px; margin: auto">@ViewBag.Gen</h3>
+        <a href="generate"><button class="btn btn-success" style="margin-top: 20px">Generate</button></a>
+        <a href="reset"><button class="btn btn-danger" style="margin-top: 20px">Reset</button></a>
+    </div>
+</div>
