@@ -1,8 +1,35 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dojodachi";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="content">
+        <div class="statusBar">
+            <p>Fullness: @ViewBag.Fullness</p>
+            <p>Happiness: @ViewBag.Happiness</p>
+            <p>Meals: @ViewBag.Meals</p>
+            <p>Energy: @ViewBag.Energy</p>
+        </div>
+        <div class="board">
+            <img src="@ViewBag.Images" alt="emotion image">
+            <p>@ViewBag.Comment</p>
+        </div>
+        @if (ViewBag.Check == "f")
+        {
+            <div class="playButton">
+                <a href="feed"><button type="button" class="btn btn-lg btn-success">Feed</button></a>
+                <a href="play"><button type="button" class="btn btn-lg btn-warning">Play</button></a>
+                <a href="work"><button type="button" class="btn btn-lg btn-danger">Work</button></a>
+                <a href="sleep"><button type="button" class="btn btn-lg btn-info">Sleep</button></a>
+            </div>
+        }
+        else
+        {
+            <div class="playButton">
+                <a href="restart"><button type="button" class="btn btn-lg btn-primary">Restart?</button></a>
+            </div>
+        }
+        
+    </div>
 </div>
+
