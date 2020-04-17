@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model User
+
+<div class="wrapper">
+    <br /><br />
+    <div class="header" style="text-align: center;">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-6" style="text-align: center;">
+                <h2>Register to this Cool Site!</h2>
+            </div>
+            <div class="col">
+                <a href="login" class="btn btn-outline-info" style="float: right;">Login</a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="fill">
+        <form asp-action="verifyregister" asp-controller="Home" method="post">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName" class="form-control">
+                        <small><span asp-validation-for="FirstName" style="color: red;"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" class="form-control">
+                        <small><span asp-validation-for="LastName" style="color: red;"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control">
+                        <small><span asp-validation-for="Email" style="color: red;"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control">
+                        <small><span asp-validation-for="Password" style="color: red;"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" class="form-control">
+                        <small><span asp-validation-for="ConfirmPassword" style="color: red;"></span></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="float: right">Sign up Now</button>
+                </div>
+                <div class="col"></div>
+            </div>
+        </form>
+    </div>
+</div>
