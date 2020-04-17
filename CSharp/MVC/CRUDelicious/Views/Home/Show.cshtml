@@ -1,0 +1,37 @@
+@model Dish
+
+<div class="content">
+    <br /><br /><br />
+    <div class="row">
+        <div class="col">
+            <a href="/" class="btn btn-outline-info btn-sm">Home</a>
+        </div>
+        <div class="col" style="text-align: center;">
+            <h1>@Model.Name</h1>
+            <h3>@Model.Chef</h3>
+            <hr>
+        </div>
+        <div class="col"></div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <p>@Model.Description</p>
+            <p><b>Calories:</b> @Model.Calories</p>
+            <p><b>Tasiness:</b> @Model.Tastiness</p>
+        </div>
+        <div class="col"></div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col"></div>
+        <div class="col" style="text-align: center;">
+            <a href="delete/@Model.DishId" class="btn btn-outline-danger">Delete</a>
+        </div>
+        <div class="col" style="text-align: center;">
+            <a href="edit/@Model.DishId" class="btn btn-outline-warning">Edit</a>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
