@@ -1,0 +1,81 @@
+@{
+    ViewData["Title"] = "Your Account";
+}
+
+@model Transaction
+
+@{
+    decimal sum = 0.00M;
+
+    @foreach ( var t in ViewBag.AllTran )
+    {
+        sum = sum + @t.Amount;
+    }
+}
+
+<div class="content">
+    <br /><br />
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="header">
+                <h3 style="display: inline">Welcome, @ViewBag.UserLogin.FirstName @ViewBag.UserLogin.LastName</h3>
+                <div class="current" style="float: right">
+                    <p style="display: inline;">Current balance: </p>
+                    <p style="display: inline; border: 1px solid black; padding: 5px">$@sum.ToString("0.00")</p>
+                    <a href="/login" class="btn btn-dark" style="display: inline; vertical-align: top;">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <br />
+            @* <form action="">
+                <p>Deposit/Withdraw</p>
+                <input asp-for="Amount" class="form-control">
+                <a href="" class="btn btn-dark" style="display: inline; vertical-align: top; margin-left: 5px">Submit</a>
+            </form> *@
+            
+            <div class="process">
+                <form asp-action="AddTran" asp-route-userId="@ViewBag.UserLogin.UserId" asp-controller="Home" method="post">
+                    <p style="display: inline;">Deposit/Withdraw</p>
+                    <input asp-for="Amount" class="form-control" style="display: inline; width: 130px">
+                    <button type="submit" class="btn btn-dark" style="display: inline; margin-left: 5px; vertical-align: top;">Submit</button>
+                </form>
+                <small><span asp-validation-for="Amount" style="color: red"></span></small>
+            </div>
+            <br />
+            <div class="data">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ( var t in ViewBag.AllTran )
+                        {
+                            <tr>
+                                @if ( t.Amount >= 0 )
+                                {
+                                    <td>$@t.Amount.ToString("0.00")</td>
+                                }
+                                else
+                                {
+                                    decimal amount = @t.Amount * -1;
+                                    <td>-$@amount.ToString("0.00")</td>
+                                }
+                                <td>@t.CreatedAt</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
