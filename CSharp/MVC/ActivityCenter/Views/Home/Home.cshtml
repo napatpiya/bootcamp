@@ -1,0 +1,76 @@
+
+
+<div class="content">
+    <div class="header">
+        <br />
+        <div class="row">
+            <div class="col">
+                <h2>Dojo Activity Center</h2>
+            </div>
+            <div class="col"></div>
+            <div class="col text-right">
+                <p style="display: inline;">Welcome, @ViewBag.UserLogin.Name   </p>
+                <a href="/" style="display: inline; margin-left: 20px">Logout</a>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="detail">
+        <table class="table table-stripe">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Date and Time</th>
+                    <th>Duration</th>
+                    <th>Event Coordinator</th>
+                    <th>No. of Participants</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach( var activity in @ViewBag.AllActivities )
+                {
+                    <tr>
+                        <td><a href="/activity/@activity.ActivityId">@activity.Title</a></td>
+                        <td>@activity.StartTime</td>
+                        <td>@activity.Duration @activity.TypeDuration</td>
+                        @foreach( var user in ViewBag.AllUsers )
+                        {
+                            if ( user.UserId == activity.UserId )
+                            {
+                                <td>@user.Name</td>
+                            }
+                        }
+                        <td>@activity.UsersJoin.Count</td>
+                        @{
+                            if ( activity.UserId == ViewBag.UserLogin.UserId)
+                            {
+                                <td><a href="/delete/activity/@activity.ActivityId/@ViewBag.UserLogin.UserId">Delete</a></td>
+                            }
+                            else
+                            {
+                                bool check = false;
+                                foreach ( var user in activity.UsersJoin )
+                                {
+                                    if ( user.User.UserId == ViewBag.UserLogin.UserId ) 
+                                    {
+                                        check = true;
+                                    }
+                                }
+                                if ( check )
+                                {
+                                    <td><a href="/leave/activity/@activity.ActivityId/@ViewBag.UserLogin.UserId">Leave</a></td>
+                                }
+                                else
+                                {
+                                    <td><a href="/join/activity/@activity.ActivityId/@ViewBag.UserLogin.UserId">Join</a></td>
+                                }
+                            }
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="/new" class="btn btn-dark" style="float: right">Add New Activity</a>
+    </div>
+</div>
