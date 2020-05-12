@@ -34,6 +34,6 @@ namespace WeddingPlanner.Models
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        public List<Planner> CreateTransaction { get; set; }
+        public List<Organize> CreatePlanner { get; set; }
     }
 }
